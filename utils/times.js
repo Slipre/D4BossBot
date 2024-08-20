@@ -10,4 +10,11 @@ function Minus15(ts) {
 	return ts15back;
 }
 
-module.exports = { TS, Minus15 }
+function ToMidnight() {
+    const czas = new Date();
+    // Oblicz opóźnienie do najbliższej północy
+    const nextMidnight = new Date(czas.getFullYear(), czas.getMonth(), czas.getDate() + 1);
+    return delay = nextMidnight - czas;
+}
+
+module.exports = { TS, Minus15, ToMidnight }

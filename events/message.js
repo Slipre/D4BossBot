@@ -6,8 +6,10 @@ module.exports = {
 			console.log(`(${msg.message_id}) Wiadomość:`);
 			console.log(msg.text);
 			console.log('===\n');
+			console.log(msg);
+			console.log('===\n');
 			if(Diablo.cmds.has(msg.text)) Diablo.cmds.get(msg.text).execute(Diablo, msg);
-			console.log("msg event done.");
+			console.log("[MSG] Done.");
 			return;
 		} catch (err) { console.error(err); return; }
 	}

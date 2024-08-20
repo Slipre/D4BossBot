@@ -2,7 +2,6 @@ const { readdirSync } = require("fs");
 module.exports = (Diablo) => {
     Diablo.cmds = new Map();
     const cmds = readdirSync("./cmds").filter(file => file.endsWith(".js"));
-    let k = 0;
     for (let file of cmds) {
         try {
             const command = require(`../cmds/${file}`);

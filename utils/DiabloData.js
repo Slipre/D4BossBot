@@ -1,8 +1,3 @@
-const names = new Map();
-names.set('Ashava', 'Adriana Zaraźliwa');
-names.set('Avarice', 'Skąpstwo. Ukaszem przeklęte');
-names.set('Wandering Death', 'Wędrujący Przem');
-
 async function getData() {
 	try {
 		const res = await fetch('https://helltides.com/api/schedule');
@@ -13,7 +8,4 @@ async function getData() {
 		console.error('DD_Error', err);
 	}
 }
-function translate(boss) {
-	return names.get(boss);
-}
-module.exports = { getData, translate }
+module.exports = { getData }
