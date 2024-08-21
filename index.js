@@ -11,6 +11,7 @@ console.log("=== START ===\n");
 MidnightStart();
 
 function telegram_error_handler(err) {
+	say("");
 	console.log("=== Error_Handler ===\n");
 	console.log(err);
 	console.log("=== End Of Error ===\n");
