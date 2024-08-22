@@ -29,6 +29,6 @@ function MidnightStart() {
 function MidnightRestart() {
 	if(Diablo.cds.length > 0) { Diablo.cds.forEach((timeout) => clearTimeout(timeout)); }
 	Diablo.emit('DiabloBoss', Diablo);
-	// Potem ustawienie cyklicznego wywoływania co 24h
-	setInterval(() => { MidnightRestart(); }, 24 * 60 * 60 * 1000);
+	// Potem ustawienie cyklicznego wywoływania co 12h
+	setInterval(() => { MidnightRestart(); }, 12 * 60 * 60 * 1000);
 }
