@@ -6,7 +6,8 @@ console.log("=== D4BossBot ===");
 for(let handler of ["cache", "events", "cmds"]) require(`./handlers/${handler}`)(Diablo);
 console.log("=== START ===\n");
 Diablo.startPolling();
-MidnightStart();
+//MidnightStart();
+Restart();
 
 function MidnightStart() {
 	console.log("Ustanawiam odliczanie do północy.");

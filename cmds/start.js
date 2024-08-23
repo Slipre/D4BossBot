@@ -1,6 +1,7 @@
 module.exports = {
 	name: "/start",
 	async execute(Diablo, msg) {
-        return Diablo.sendMessage(msg.chat.id, `Hello, I'm diablo Diablo.. I will trackdown all bosses ;D [Dev]`, { parse_mode: 'Markdown' });
+		if(!Diablo.userOnline.has(msg.chat.id)) Diablo.userOnline.add(msg.chat.id);
+        return Diablo.sendMessage(msg.chat.id, `Notification are ON`);
 	}
 }

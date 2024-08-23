@@ -14,7 +14,7 @@ function createButtons(Diablo, chatId) {
 	}
 	catch (err) { console.error(err); return; }
 }
-function setButtons() {
+async function setButtons() {
 	return {
 		"30min": false,
 		"15min": false,
