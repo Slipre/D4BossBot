@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { ToMidnight } = require('./utils/times');
+const { say } = require('./utils/say');
 const TelegramDiablo = require('node-telegram-bot-api');
 const Diablo = new TelegramDiablo(process.env.D4BossBot, { polling: false });
 Diablo.cds = new Array();
