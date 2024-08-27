@@ -4,17 +4,19 @@ function TS() {
 	return Math.floor(ts/1000);
 }
 
-// Timestamp w sekundach cofnięty o 15 minut
-function Minus15(ts) {
-	let ts15back = ts - 900;
-	return ts15back;
-}
+// Funkcja odejmująca 30 minut (1800 sekund)
+function Minus30(ts) { return ts - 1800; }
 
-function ToMidnight() {
-    const czas = new Date();
-    // Oblicz opóźnienie do najbliższej północy
-    const nextMidnight = new Date(czas.getFullYear(), czas.getMonth(), czas.getDate() + 1);
-    return delay = nextMidnight - czas;
-}
+// Funkcja odejmująca 15 minut (900 sekund)
+function Minus15(ts) { return ts - 900; }
 
-module.exports = { TS, Minus15, ToMidnight }
+// Funkcja odejmująca 10 minut (600 sekund)
+function Minus10(ts) { return ts - 600; }
+
+// Funkcja odejmująca 5 minut (300 sekund)
+function Minus5(ts) { return ts - 300; }
+
+// Funkcja odejmująca 1 minutę (60 sekund)
+function Minus1(ts) { return ts - 60; }
+
+module.exports = { TS, Minus30, Minus15, Minus10, Minus5, Minus1 }

@@ -1,5 +1,5 @@
 const { getData } = require('../utils/DiabloData');
-const { TS, Minus15 } = require('../utils/times');
+const Times = require('../utils/times');
 require('dotenv').config();
 module.exports = {
 	run: async (Diablo) => {
@@ -7,28 +7,55 @@ module.exports = {
 			const dane = await getData();
 			console.log('[D4] Pobrano dane.');
 			Diablo.sendMessage(process.env.MyPriv, "Działam..", { parse_mode: 'Markdown' });
-			const ts_now = TS();
-
-			// 15 min przed powiadomienie
+			const ts_now = Times.TS();
 			for (const bosik of dane.world_boss) {
-				let delay = Minus15(bosik.timestamp) - ts_now;
-				if(delay < 1) continue;
-				//tsy w sekundach
-				let timeout_ID = setTimeout(() => {
+				let [delay30, delay15, delay10, delay5, delay1, delayToNow] = [
+					Times.Minus30(bosik.timestamp) - ts_now, Times.Minus15(bosik.timestamp) - ts_now,
+					Times.Minus10(bosik.timestamp) - ts_now, Times.Minus5(bosik.timestamp) - ts_now,
+					Times.Minus1(bosik.timestamp) - ts_now, bosik.timestamp - ts_now,
+				];
+				
+				let timeout30_ID = setTimeout(() => {
+					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nWill arrive in *30* minutes!`;
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, '30min');
+				}, delay30 * 1000);
+				Diablo.touts.push(timeout30_ID);
+
+				let timeout15_ID = setTimeout(() => {
 					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nWill arrive in *15* minutes!`;
-					Diablo.sendMessage(process.env.PublicChannel, text, { parse_mode: 'Markdown' });
-				}, delay * 1000);
-				Diablo.cds.push(timeout_ID);
-			}
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, '15min');
+				}, delay15 * 1000);
+				Diablo.touts.push(timeout15_ID);
 
-			// Powiadomienie że teraz się to dzieje
-			for (const bosik of dane.world_boss) {
-				// tsy w sekundach				
-				let timeout_ID = setTimeout(() => {	
+				let timeout10_ID = setTimeout(() => {
+					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nWill arrive in *10* minutes!`;
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, '10min');
+				}, delay10 * 1000);
+				Diablo.touts.push(timeout10_ID);
+
+				let timeout5_ID = setTimeout(() => {
+					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nWill arrive in *5* minutes!`;
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, '5min');
+				}, delay5 * 1000);
+				Diablo.touts.push(timeout5_ID);
+
+				let timeout1_ID = setTimeout(() => {
+					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nWill arrive in *1* minutes!`;
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, '1min');
+				}, delay1 * 1000);
+				Diablo.touts.push(timeout1_ID);
+
+				let timeout_ID = setTimeout(() => {
 					let text = `🔥*BOSS Alert!*🔥\n_${bosik.boss}_\nFighting!`;
-					Diablo.sendMessage(process.env.PublicChannel, text, { parse_mode: 'Markdown', disable_notification: true });
-				}, (bosik.timestamp - ts_now) * 1000);
-				Diablo.cds.push(timeout_ID);
+					Diablo.emit('sendToPublic', text);
+					Diablo.emit('sendToPrivate', text, 'about time');
+				}, delayToNow * 1000);
+				Diablo.touts.push(timeout_ID);
 			}
 			return;
 		} catch (err) {

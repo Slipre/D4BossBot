@@ -1,6 +1,6 @@
 {
   "name": "diablo4bossbot",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Telegram Bot",
   "main": "index.js",
   "scripts": {

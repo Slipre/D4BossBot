@@ -9,7 +9,7 @@ module.exports = {
 			console.log(msg);
 			console.log('===\n');
 			if(Diablo.cmds.has(msg.text)) Diablo.cmds.get(msg.text).execute(Diablo, msg);
-			console.log("[MSG] Done.");
+			console.log("[MSG] Done.\n");
 			return;
 		} catch (err) { console.error(err); return; }
 	}

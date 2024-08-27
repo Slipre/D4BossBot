@@ -1,6 +1,6 @@
 module.exports = (Diablo) => {
 	try {
-		Diablo.cds = new Array();
+		Diablo.touts = new Array();
 		Diablo.cmds = new Map();
 		Diablo.userOnline = new Set();
 		Diablo.userChoices = {};

@@ -1,7 +1,8 @@
+require('dotenv').config();
 async function getData() {
 	try {
-		const res = await fetch('https://helltides.com/api/schedule');
-		if(!res.ok) { console.error(`[DD_ApiError]: ${res.status}`)}
+		const res = await fetch(process.env.API);
+		if(!res.ok) { console.error(`[D4_ApiError]: ${res.status}`)}
 		const data = await res.json();
 		return data;
 	} catch (err) {
