@@ -4,9 +4,9 @@ module.exports = (Diablo) => {
 		Diablo.cmds = new Map();
 		Diablo.userOnline = new Set();
 		Diablo.userChoices = {};
-		return console.log(`👌 | Prawidłowo zarejestrowano cache.`);
+		return console.log(`👌 | Cache loaded correctly.`);
 	} catch (err) {
-		console.error("🤬 | Nie załadowano cache.");
+		console.error("🤬 | Cache not loaded.");
 		return console.log(err);
 	}
 }

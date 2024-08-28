@@ -1,5 +1,5 @@
 function say(text) {
-    return console.log(getWhen() + ">> " + text);
+	return console.log(getWhen() + ">> " + text);
 }
 function getWhen(){
 	return "(" + getDate() + " - " + getTime() + ") "
