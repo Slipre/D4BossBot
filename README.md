@@ -73,8 +73,6 @@ Jeśli masz pomysły na ulepszenie bota, proszę o przesłanie pull requestów l
 Jeśli masz pytania lub potrzebujesz pomocy, skontaktuj się ze mną.
 
 ---
----
----
 
 ## [EN]
 
