@@ -33,7 +33,7 @@ npm install
 #### 3. Skonfiguruj bota:
 Utwórz plik `.env` w katalogu głównym projektu i dodaj swoje dane konfiguracyjne:
 
-```json
+```bash
 TOKEN=Twój_Telegram_Bot_Token
 API=Twój_API_Endpoint
 PublicChannel=Twój_Publiczny_Kanał_ID
